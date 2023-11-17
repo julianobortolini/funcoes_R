@@ -94,13 +94,13 @@ multiple_boot_t_test_MKinfer <- function(data, categorical_var, response, n_boot
       sd_j = sd(subset_j[[response]]),
       n_j = nrow(subset_j),
       t_stat = boot_result$statistic,
-      p_value = boot_result$p.value
+      p_value = boot_result$boot.p.value
     )
     
     # Anexando o resultado ao dataframe de resultados
     results <- rbind(results, result_row)
   }
-  
+  row.names(results) <- NULL
   return(results)
 }
 
